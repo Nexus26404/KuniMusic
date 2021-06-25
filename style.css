@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main_con {
+    width: 800px;
+    height: 600px;
+    background-color: rgb(247, 244, 214);
+    margin: 100px auto;
+    position: relative;
+}
+
+header {
+    height: 40px;
+    width: 800px;
+    line-height: 40px;
+    padding: 10px 0;
+    background-color: rgb(64, 167, 252);
+    border-bottom: solid 5px #ccc;
+}
+
+.icon {
+    float: left;
+    margin-left: 20px;
+    background-image: -webkit-linear-gradient(left, #f00, #00f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.search {
+    float: right;
+    margin-right: 30px;
+    /* border: solid 1px rgb(38, 159, 207); */
+    position: relative;
+    border-radius: 20px;
+}
+
+.search_txt {
+    height: 40px;
+    width: 300px;
+    float: left;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, .3);
+    text-indent: 20px;
+    font-size: 15px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    color: #666;
+}
+
+.search_btn {
+    height: 40px;
+    width: 40px;
+    float: right;
+    border: none;
+    background-color: rgba(7, 141, 182, 0.7);
+    outline: none;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.mask {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, .1);
+    z-index: 9999;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.search_btn:hover .mask {
+    display: block;
+}
+
+.search_btn img {
+    width: 25px;
+    height: 25px;
+    margin: 8px 10px 8px 3px;
+}
+
+.main_con .list {
+    width: 198px;
+    height: 475px;
+    float: left;
+    margin-top: 6px;
+    border-right: 2px solid;
+    border-image: -webkit-linear-gradient(rgba(100, 100, 100, 0), rgba(100, 100, 100, .8), rgba(100, 100, 100, 0))0 10;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.main_con .list::-webkit-scrollbar {
+    width: 0;
+}
+
+.center {
+    width: 400px;
+    height: 475px;
+    float: left;
+}
+
+.main_con .comment {
+    width: 198px;
+    height: 475px;
+    border-left: 2px solid;
+    border-image: -webkit-linear-gradient(rgba(100, 100, 100, 0), rgba(100, 100, 100, .8), rgba(100, 100, 100, 0))10 30;
+    float: right;
+}
+
+.musicPlay {
+    outline: none;
+    width: 800px;
+    height: 60px;
+    background-color: rgb(241, 243, 244);
+}
+
+.list li {
+    height: 40px;
+    width: 180px;
+    line-height: 40px;
+    margin-left: 8px;
+    margin-top: 5px;
+    position: relative;
+}
+
+.list span {
+    max-width: 110px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.list li:nth-child(2n-1) {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.list .play {
+    outline: none;
+    border: none;
+    float: left;
+    margin: 5px 2px 5px 3px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.play img {
+    width: 30px;
+    height: 30px;
+}
+
+.list span {
+    font-size: 15px;
+    color: #333;
+}
+
+.list .watchMv {
+    outline: none;
+    border: none;
+    /* float: right;
+    margin: 10px 5px 10px 0px; */
+    /* padding: 10px 5px 10px 0; */
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    /* display: none; */
+}
+
+.watchMv img {
+    width: 20px;
+    height: 20px;
+}
+
+.comment h3 {
+    margin: 10px 0 10px 10px;
+}
+
+.hotcom {
+    height: 430px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.hotcom::-webkit-scrollbar {
+    width: 0;
+}
+
+.hotcom li {
+    margin-left: 10px;
+    width: 180px;
+}
+
+.comment img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    float: left;
+}
+
+.comment .user {
+    float: left;
+    width: 140px;
+    margin-bottom: 30px;
+}
+
+.comment .user label {
+    height: 40px;
+    line-height: 40px;
+    padding-left: 8px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.comment .user p {
+    font-size: 14px;
+    color: #999;
+    padding-left: 8px;
+    margin-top: -2px;
+}
+
+.center .record {
+    width: 280px;
+    height: 280px;
+    margin: 100px auto;
+    background-image: url(大唱片.png);
+    border-radius: 50%;
+}
+
+@keyframes changeDeg {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.playing {
+    border-radius: 50%;
+    animation: changeDeg 10s linear 0.2s infinite;
+}
+
+.record img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    padding: 60px;
+}
+
+.video_cn {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.playVideo {
+    width: 800px;
+    height: 500px;
+    /* margin: 60px;
+    margin-left: 275px; */
+    position: absolute;
+    top: 60px;
+    margin-left: 275px;
+    outline: none;
+}
+
+.video_cn .mask_cn {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, .3);
+}

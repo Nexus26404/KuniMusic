@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>听音乐，用酷你</title>
+    <link rel="stylesheet" href="style.css">
+    <script src='https://cdn.jsdelivr.net/npm/vue'></script>
+    <script src="http://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="app" id="app">
+        <div class="main_con">
+            <header>
+                <div class="icon">
+                    <h2>酷你音乐</h2>
+                </div>
+                <div class="search">
+                    <input type="text" class="search_txt" placeholder="请输入想要查询的歌曲,如‘鸡你太美’" @keyup.enter="searchMusic" v-model="query">
+                    <button class="search_btn" @click="searchMusic"><div class="mask"></div><img src="icon/search.png"></button>
+                </div>
+            </header>
+            <div class="content">
+                <ul class="list">
+                    <li v-for="item in musicList">
+                        <button class="play" @click="playMusic(item.id)"><img src="icon/timeout.png"></button>
+                        <span v-bind:title="item.name">{{item.name}}</span>
+                        <button class="watchMv" title="播放MV" v-if="item.mvid!=0" @click="playMv(item.mvid)"><img src="icon/film.png"></button>
+                    </li>
+                </ul>
+                <div class="center">
+                    <div class="record" :class="{playing:isPlaying}">
+                        <img :src="musicCover" onerror="this.src='SDP.jpg'">
+                    </div>
+                </div>
+                <div class="comment">
+                    <h3>热门评论</h3>
+                    <ul class="hotcom">
+                        <li v-for="item in hotComments">
+                            <img :src="item.user.avatarUrl" alt="头像" class="head">
+                            <div class="user">
+                                <label>{{item.user.nickname}}</label>
+                                <p>{{item.content}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <audio v-bind:src="musicUrl" @play="play" @pause="pause" loop="loop" class="musicPlay" controls autoplay></audio>
+        </div>
+        <div class="video_cn" v-show="isShow">
+            <video :src="mvUrl" controls class="playVideo" autoplay></video>
+            <div class="mask_cn" @click="hide"></div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
